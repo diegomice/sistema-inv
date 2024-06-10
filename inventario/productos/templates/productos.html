@@ -1,0 +1,38 @@
+<!-- productos/templates/productos.html -->
+<!-- Extiende el archivo 'base.html', que probablemente contiene la estructura común de la página. -->
+{% extends 'base.html' %}
+
+<!-- Define el título de la página utilizando el bloque 'title'. -->
+{% block title %}Lista de Productos{% endblock %}
+
+<!-- Define el contenido que se mostrará en el encabezado de la página utilizando el bloque 'header'. -->
+{% block header %}
+    <h2>Lista de Productos</h2>
+{% endblock %}
+
+<!-- Define el contenido principal de la página utilizando el bloque 'content'. -->
+{% block content %}
+<div class="lista-productos">
+    <!-- Itera sobre la lista de productos y muestra cada producto en una tarjeta. -->
+    {% for producto in productos %}
+        <div class="tarjeta-producto">
+            <!-- Verifica si el producto tiene una imagen asociada y la muestra si existe. -->
+            {% if producto.imagen %}
+            <img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}">
+            {% endif %}
+            <!-- Muestra el nombre del producto en un encabezado h2. -->
+            <h2>{{ producto.nombre }}</h2>
+            <!-- Muestra el precio del producto en un párrafo con la etiqueta de precio. -->
+            <p class="precio">${{ producto.precio }}</p>
+            <!-- Muestra la descripción del producto truncada a 100 caracteres con puntos suspensivos. -->
+            <p>{{ producto.descripcion|truncatechars:100 }}...</p>
+            <!-- Crea un grupo de botones con un botón de compra y un enlace a la página de detalles del producto. -->
+            <div class="grupo-botones">
+                <button class="boton">Comprar</button>
+                <!-- Genera un enlace dinámico usando la URL 'detalle' y pasando el ID del producto como parámetro. -->
+                <a href="{% url 'detalle' producto.id %}" class="boton">Detalles</a>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

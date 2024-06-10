@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+<!-- Define el título de la página utilizando el nombre del producto. -->
+{% block title %}{{ producto.nombre }}{% endblock %}
+
+<!-- Define el contenido que se mostrará en el encabezado de la página utilizando el nombre del producto. -->
+{% block header %}
+    <h2>{{ producto.nombre }}</h2>
+{% endblock %}
+
+<!-- Define el contenido principal de la página. -->
+{% block content %}
+<section class="detalle-producto">
+    <div class="contenedor-imagen">
+        <!-- Muestra el nombre del producto como título. -->
+        <h2>{{ producto.nombre }}</h2>
+        <!-- Verifica si el producto tiene una imagen y la muestra si está disponible. -->
+        {% if producto.imagen %}
+        <img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}">
+        {% endif %}
+        <!-- Muestra el precio del producto en un párrafo con la etiqueta de precio. -->
+        <p class="precio">${{ producto.precio }}</p>
+        <!-- Muestra la cantidad en stock del producto. -->
+        <p class="stock">Stock: {{ producto.stock }}</p>
+        <!-- Crea un grupo de botones con un botón de compra y un enlace para volver a la lista de productos. -->
+        <div class="grupo-botones">
+            <button class="boton detalle-boton">Comprar</button>
+            <a href="{% url 'productos' %}" class="boton detalle-boton">Volver</a>
+        </div>
+    </div>
+    <!-- Muestra la descripción del producto en un artículo separado. -->
+    <article class="info-producto">
+        <p class="descripcion">{{ producto.descripcion }}</p>
+    </article>
+</section>
+{% endblock %}

@@ -42,6 +42,22 @@ INSTALLED_APPS = [
     'productos' # Registro de nuestra aplicación personalizada llamada 'productos'
 ]
 
+# Define la URL base para acceder a archivos estáticos.
+STATIC_URL = '/static/'
+
+# Define una lista de directorios donde buscar archivos estáticos adicionales.
+# En este caso, se está especificando un directorio llamado "static" dentro del directorio base del proyecto.
+STATICFILES_DIRS = [BASE_DIR / "static"]
+
+# Define la URL base para acceder a archivos de medios.
+MEDIA_URL = '/media/'
+
+# Define el directorio en el sistema de archivos donde se almacenarán los archivos de medios.
+# En este caso, se está especificando un directorio llamado "media" dentro del directorio base del proyecto.
+MEDIA_ROOT = BASE_DIR / 'media'
+
+
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
