@@ -1,0 +1,47 @@
+<!-- productos/templates/base.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Configura el conjunto de caracteres del documento a UTF-8 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <!-- Bloque de título que puede ser sobrescrito por plantillas que extiendan esta base -->
+        {% block title %}
+        Sistema de Gestión de Productos
+        {% endblock %}
+    </title>
+    <!-- Carga las etiquetas de archivos estáticos de Django -->
+    {% load static %}
+    <!-- Enlace a un archivo CSS estático llamado 'styles.css' -->
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <header>
+        <!-- Bloque de encabezado que puede ser sobrescrito por plantillas que extiendan esta base -->
+        {% block header %}
+        {% endblock %}
+    </header>
+    <nav>
+        <ul>
+            <!-- Enlace a la página de inicio usando la URL llamada 'inicio' -->
+            <li><a href="{% url 'inicio' %}">Inicio</a></li>
+            <!-- Enlace a la página de productos usando la URL llamada 'productos' -->
+            <li><a href="#">Productos</a></li>
+            <!-- Otros enlaces sin URLs dinámicas -->
+            <li><a href="#">Quienes Somos</a></li>
+            <li><a href="#">Contacto</a></li>
+            <li><a href="#">Login</a></li>
+        </ul>
+        <!-- Barra de búsqueda simple -->
+        <div class="search-bar">
+            <input type="text" placeholder="Buscar">
+        </div>
+    </nav>
+    <main>
+        <!-- Bloque de contenido que puede ser sobrescrito por plantillas que extiendan esta base -->
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>

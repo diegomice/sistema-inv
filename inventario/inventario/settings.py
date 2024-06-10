@@ -29,14 +29,17 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
+ # Aplicaciones contribuidas por Django
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
+    'django.contrib.admin',  # Habilita la interfaz de administración de Django
+    'django.contrib.auth',  # Gestión de autenticación y permisos de usuarios
+    'django.contrib.contenttypes', # Permite trabajar con tipos de contenido y permisos asociados
+    'django.contrib.sessions',  # Habilita el uso de sesiones para almacenar datos de usuarios en el servidor
+    'django.contrib.messages', # Proporciona una manera de manejar mensajes flash (notificaciones de una sola vez)
+    'django.contrib.staticfiles',  # Gestión de archivos estáticos como CSS, JavaScript, e imágenes
+    
+    #nuestras app
+    'productos' # Registro de nuestra aplicación personalizada llamada 'productos'
 ]
 
 MIDDLEWARE = [

@@ -1,0 +1,27 @@
+<!-- productos/templates/inicio.html -->
+
+<!-- Extiende la plantilla base 'base.html' -->
+{% extends 'base.html' %}
+
+<!-- Sobrescribe el bloque 'title' de la plantilla base -->
+{% block title %}Inicio - Sistema de Productos{% endblock %}
+
+<!-- Sobrescribe el bloque 'header' de la plantilla base -->
+{% block header %}
+    <!-- Encabezado personalizado para la página de inicio -->
+    <h2>Bienvenido al gestor de inventarios</h2>
+{% endblock %}
+
+<!-- Sobrescribe el bloque 'content' de la plantilla base -->
+{% block content %}
+    <!-- Artículo principal de la página de inicio -->
+    <article>
+        <h2>Optimiza tus operaciones con nuestro software de inventario</h2>
+        <p>Nuestro sistema de gestión de inventario es la solución. Con características como automatización, control de stock y proyección, te ayudamos a mantener tus productos en orden y a maximizar la rentabilidad. ¡Descubre cómo podemos simplificar tu proceso de inventario hoy mismo
+        </p>
+    </article>
+    <aside>
+        <!-- Espacio reservado para contenido adicional -->
+        Banner
+    </aside>
+{% endblock %}

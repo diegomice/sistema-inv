@@ -1,22 +1,20 @@
-"""
-URL configuration for inventario project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.0/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
+# Importa el módulo de administración de Django y funciones para manejar rutas URL.
 from django.contrib import admin
-from django.urls import path
 
+# Importa la función `path` para definir rutas y `include` para incluir otras configuraciones de URL.
+from django.urls import path, include
+
+# Importa el módulo `views` desde la aplicación `productos`.
+from productos import views
+
+# Define la lista `urlpatterns` que contiene las rutas URL que se configurarán para el proyecto.
 urlpatterns = [
+    # Define una ruta para la interfaz de administración.
+    # Cuando la URL comienza con 'admin/', se utiliza la interfaz de administración de Django.
     path('admin/', admin.site.urls),
+    
+    # Define una ruta raíz ('').
+    # Incluye las rutas definidas en el archivo `urls.py` de la aplicación `productos`.
+    # Esto permite modularizar las rutas de URL de la aplicación `productos`.
+    path('',include('productos.urls')),
 ]
